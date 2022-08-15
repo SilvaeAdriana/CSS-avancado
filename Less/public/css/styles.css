@@ -1,0 +1,115 @@
+/*variavel em Less*/
+/*cria-se a variavel e daqui por diante, passa-se a chamá-la*/
+/* qdo há manutenção, basta trocar o valor na variável*/
+/*trabalhando com hierarquia*/
+.drop-shadow {
+  text-shadow: 2px 1px 1px #ccc;
+  text-decoration: underline;
+}
+h1 {
+  color: blue;
+}
+p {
+  color: blue;
+}
+p b {
+  color: yellow;
+  background-color: red;
+  /*mantem pela hierarquia*/
+}
+/*
+********** less com function  **************
+@cor: blue;
+@width: 0.75  ;
+
+
+body{
+    background-color: rgb(210,212,208);
+}
+
+h1{
+    color: @cor;
+}
+
+p{
+    color: @cor;
+    width: percentage(@width) ;---> converte a variavel em %
+
+
+    color: if(iscolor(@cor), @cor, red;  --> verificar se é cor, se for define
+    a variavel como valor, se não for cor, red toma o valor
+
+}
+
+
+
+*/
+/*
+APLICAÇÃO DO MIXIN
+
+@cor: blue;
+@cor_cinza_claro: rgb(210,212,208);
+
+body{
+    backgorund-color: @cor_cinza_claro;
+}
+
+h1{
+    .cores();
+    text-shadow:2px  1px 1px #7a7b7c;
+    font-size: 50px; //prepondera esse font-size, apesar do .cores(), 
+    por ter sido colocado nessa posição//por ser mais específico
+}
+
+p{
+    .cores(); //chamando o MIXIN
+    font-size: 23px;
+
+}
+
+//criando o MIXIN-é como um função
+.cores(){
+    color: @cor;
+    background-color: @cor*0.5; //calculo de tonalidade
+    font-size: 23px;
+}
+
+*/
+/*
+CONDICIONAIS
+@cor : blue;
+@cor_cinza_claro: rgb(210,212,208);
+@tamanho: 23px;
+
+
+body{
+    background-color:@cor_cinza_claro;
+}
+
+h1{
+    .cores(50px, 'h1');
+    text-shadow: 2px  1px 1px #7a7b7c;
+
+}
+
+p{
+    .cores(23px, '');
+}
+
+
+.cores(@tamanho,@tag){
+    color: @cor;
+    font-size: @tamanho;
+    & when (@tag = 'h1){
+        text-shadow: 2px 1px 1px #7a7b7c;
+        font-size: @tamanho +27px;
+
+    }else{
+        background-color: lightgreen;
+    }
+}
+
+
+
+
+*/
